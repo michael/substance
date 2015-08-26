@@ -37,9 +37,8 @@ HtmlExporter.Prototype = function() {
 
   this.convertProperty = function(doc, path, options) {
     this.initialize(doc, options);
-    var $wrapper = $('<div>')
+    return $('<span>')
       .append(this.annotatedText(path));
-    return $wrapper.html();
   };
 
   this.initialize = function(doc, options) {
