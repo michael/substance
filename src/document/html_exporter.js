@@ -95,7 +95,7 @@ HtmlExporter.Prototype = function() {
     };
     annotator.onExit = function(entry, context, parentContext) {
       var anno = context.annotation;
-      if (self.config.skipTypes[anno.type]) {
+      if (self.config.skipTypes && self.config.skipTypes[anno.type]) {
         return;
       }
       var NodeConverter = self.getNodeConverter(anno);
