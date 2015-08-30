@@ -37,9 +37,8 @@ HtmlExporter.Prototype = function() {
 
   this.convertProperty = function(doc, path, options) {
     this.initialize(doc, options);
-    var $wrapper = $('<div>')
+    return $('<span>')
       .append(this.annotatedText(path));
-    return $wrapper.html();
   };
 
   this.initialize = function(doc, options) {
@@ -95,7 +94,7 @@ HtmlExporter.Prototype = function() {
     };
     annotator.onExit = function(entry, context, parentContext) {
       var anno = context.annotation;
-      if (self.config.skipTypes[anno.type]) {
+      if (self.config.skipTypes && self.config.skipTypes[anno.type]) {
         return;
       }
       var NodeConverter = self.getNodeConverter(anno);
